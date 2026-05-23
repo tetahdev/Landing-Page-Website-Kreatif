@@ -1,0 +1,676 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Website Kreatif</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Outfit:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:          #f0f4ff;
+      --bg-2:        #e8eeff;
+      --white:       #ffffff;
+      --navy:        #1a2f6e;
+      --navy-2:      #243580;
+      --blue:        #3b5bdb;
+      --blue-2:      #4c6ef5;
+      --teal:        #0ea5c4;
+      --teal-2:      #22b8cf;
+      --purple:      #7c3aed;
+      --purple-2:    #9333ea;
+      --yellow:      #f59e0b;
+      --yellow-2:    #fbbf24;
+      --orange:      #f97316;
+      --text:        #1e293b;
+      --text-2:      #334155;
+      --muted:       #64748b;
+      --muted-2:     #94a3b8;
+      --line:        rgba(59,91,219,.12);
+      --line-2:      rgba(59,91,219,.2);
+      --shadow:      0 20px 60px rgba(59,91,219,.15);
+      --shadow-sm:   0 6px 24px rgba(59,91,219,.1);
+    }
+
+    *{margin:0;padding:0;box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      font-family:'Plus Jakarta Sans',sans-serif;
+      background:var(--bg);
+      color:var(--text);
+      overflow-x:hidden;
+    }
+
+    body::before{
+      content:"";position:fixed;inset:0;
+      background-image:
+        linear-gradient(rgba(59,91,219,.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(59,91,219,.04) 1px, transparent 1px);
+      background-size:48px 48px;
+      pointer-events:none;z-index:-1;
+    }
+
+    a{text-decoration:none;color:inherit}
+    section{padding:100px 8%}
+
+    /* NAV */
+    .nav{
+      position:fixed;top:16px;left:50%;transform:translateX(-50%);
+      width:min(1120px,90%);z-index:99;
+      display:flex;justify-content:space-between;align-items:center;
+      padding:12px 20px;
+      border:1.5px solid var(--line-2);
+      background:rgba(255,255,255,.92);
+      backdrop-filter:blur(20px);
+      border-radius:999px;
+      box-shadow:0 6px 32px rgba(59,91,219,.12);
+    }
+    .brand{display:flex;align-items:center;gap:10px;font-weight:800;font-size:15px;font-family:'Outfit',sans-serif}
+    .brand-badge{
+      width:36px;height:36px;border-radius:12px;
+      display:grid;place-items:center;font-size:16px;
+      background:linear-gradient(135deg,var(--blue),var(--teal));
+      box-shadow:0 4px 16px rgba(59,91,219,.25);color:white;
+    }
+    .brand-name{color:var(--navy)}
+    .brand-dot{color:var(--teal)}
+    .nav ul{display:flex;gap:2px;list-style:none;align-items:center}
+    .nav a.link{font-size:13.5px;color:var(--muted);padding:9px 14px;border-radius:999px;transition:.2s;font-weight:600}
+    .nav a.link:hover{background:rgba(59,91,219,.08);color:var(--blue)}
+    .nav .cta-mini{
+      padding:10px 20px;border-radius:999px;
+      background:linear-gradient(135deg,var(--blue),var(--teal));
+      color:white;font-size:13.5px;font-weight:700;
+      box-shadow:0 6px 20px rgba(59,91,219,.25);transition:.2s;
+    }
+    .nav .cta-mini:hover{transform:translateY(-2px);box-shadow:0 10px 28px rgba(59,91,219,.3)}
+
+    /* HERO */
+    .hero{
+      min-height:100vh;padding:150px 8% 90px;
+      display:grid;grid-template-columns:1.1fr .9fr;
+      align-items:center;gap:70px;
+      background:linear-gradient(145deg,#f0f4ff 0%,#e8f0ff 50%,#eef3ff 100%);
+      position:relative;overflow:hidden;
+    }
+    .hero::before{
+      content:"";position:absolute;top:-20%;right:-10%;
+      width:600px;height:600px;border-radius:50%;
+      background:radial-gradient(circle,rgba(59,91,219,.1),transparent 70%);
+      pointer-events:none;
+    }
+    .hero::after{
+      content:"";position:absolute;bottom:-15%;left:-8%;
+      width:450px;height:450px;border-radius:50%;
+      background:radial-gradient(circle,rgba(14,165,196,.1),transparent 70%);
+      pointer-events:none;
+    }
+    .eyebrow{
+      display:inline-flex;align-items:center;gap:9px;
+      color:var(--blue);border:1.5px solid rgba(59,91,219,.2);
+      background:rgba(59,91,219,.07);
+      padding:8px 16px;border-radius:999px;font-size:13px;
+      margin-bottom:24px;font-weight:700;
+    }
+    .dot{width:7px;height:7px;border-radius:50%;background:#22c55e;box-shadow:0 0 10px #22c55e;flex:none}
+    h1{
+      font-family:'Outfit',sans-serif;
+      font-size:clamp(44px,6.5vw,80px);
+      line-height:1.05;letter-spacing:-1.5px;margin-bottom:22px;
+      font-weight:800;color:var(--navy);
+    }
+    .grad{background:linear-gradient(90deg,var(--blue),var(--teal));-webkit-background-clip:text;background-clip:text;color:transparent;}
+    .hero-desc{color:var(--text-2);font-size:17px;line-height:1.85;max-width:620px;font-weight:400}
+    .hero-actions{display:flex;gap:14px;flex-wrap:wrap;margin-top:34px}
+    .btn{
+      display:inline-flex;align-items:center;justify-content:center;gap:9px;
+      padding:14px 24px;border-radius:14px;font-weight:700;
+      transition:.25s;border:2px solid transparent;font-size:15px;
+      font-family:'Plus Jakarta Sans',sans-serif;
+    }
+    .btn-primary{background:linear-gradient(135deg,var(--blue),var(--teal));color:white;box-shadow:0 10px 32px rgba(59,91,219,.25);}
+    .btn-primary:hover{transform:translateY(-3px);box-shadow:0 16px 40px rgba(59,91,219,.32)}
+    .btn-ghost{background:white;color:var(--navy);border-color:var(--line-2);box-shadow:var(--shadow-sm);}
+    .btn-ghost:hover{transform:translateY(-3px);border-color:rgba(59,91,219,.35);box-shadow:var(--shadow)}
+    .hero-proof{display:flex;gap:20px;flex-wrap:wrap;margin-top:32px}
+    .proof-item{display:flex;align-items:center;gap:8px;font-size:13.5px;color:var(--muted);font-weight:600}
+    .check{width:20px;height:20px;border-radius:50%;background:linear-gradient(135deg,#22c55e,#16a34a);display:grid;place-items:center;color:white;font-size:11px;flex:none;}
+
+    /* SHOWCASE */
+    .showcase{position:relative;min-height:560px;z-index:1}
+    .orb{
+      position:absolute;inset:30px 0 auto auto;
+      width:360px;height:360px;border-radius:50%;
+      background:conic-gradient(from 90deg,var(--blue),var(--teal),var(--purple),var(--blue));
+      filter:blur(1px);opacity:.18;animation:float 6s ease-in-out infinite;
+    }
+    .panel{position:absolute;border:1.5px solid var(--line-2);background:white;border-radius:24px;box-shadow:var(--shadow-sm);}
+    .dashboard{right:0;top:70px;width:390px;padding:22px}
+    .dash-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:18px}
+    .window-dots{display:flex;gap:6px}
+    .window-dots i{width:9px;height:9px;border-radius:50%}
+    .window-dots i:nth-child(1){background:#ff5f57}
+    .window-dots i:nth-child(2){background:#ffc12f}
+    .window-dots i:nth-child(3){background:#29ce41}
+    .pill{font-size:11px;color:white;background:linear-gradient(90deg,var(--blue),var(--teal));padding:5px 12px;border-radius:999px;font-weight:700}
+    .dash-label{font-size:12px;color:var(--muted);margin-bottom:6px;font-weight:600;letter-spacing:.3px;text-transform:uppercase}
+    .bar{height:8px;border-radius:999px;background:var(--bg-2);overflow:hidden;margin-bottom:14px}
+    .bar span{display:block;height:100%;border-radius:999px}
+    .bar-blue span{background:linear-gradient(90deg,var(--blue),var(--blue-2))}
+    .bar-teal span{background:linear-gradient(90deg,var(--teal),var(--teal-2))}
+    .bar-purple span{background:linear-gradient(90deg,var(--purple),var(--purple-2))}
+    .dash-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:14px}
+    .mini-card{background:var(--bg);border:1.5px solid var(--line);border-radius:16px;padding:14px}
+    .mini-card b{font-size:24px;font-family:'Outfit',sans-serif;font-weight:700;color:var(--navy)}
+    .mini-card p{font-size:12px;color:var(--muted);margin-top:4px;font-weight:600}
+    .floating-a{left:0;top:210px;width:235px;padding:20px;animation:float 7s ease-in-out infinite reverse}
+    .floating-b{right:20px;bottom:10px;width:260px;padding:20px;animation:float 8s ease-in-out infinite}
+    .panel h3{font-size:15px;font-weight:700;color:var(--navy)}
+    .panel p{color:var(--muted);line-height:1.7;margin-top:8px;font-size:13px}
+    .chip-row{display:flex;gap:7px;flex-wrap:wrap;margin-top:12px}
+    .chip{font-size:12px;border:1.5px solid var(--line-2);background:rgba(59,91,219,.05);padding:6px 11px;border-radius:999px;color:var(--blue);font-weight:600}
+    @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-14px)}}
+
+    /* SHARED */
+    .title{text-align:center;max-width:720px;margin:0 auto 56px}
+    .title small{color:var(--teal);font-weight:700;letter-spacing:3px;text-transform:uppercase;font-size:12px}
+    .title h2{font-family:'Outfit',sans-serif;font-size:clamp(32px,4vw,52px);line-height:1.1;letter-spacing:-.8px;margin:14px 0;font-weight:800;color:var(--navy);}
+    .title p{color:var(--muted);line-height:1.85;font-size:16px}
+
+    /* FEATURES */
+    .features{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+    .feature{border:1.5px solid var(--line);background:white;border-radius:26px;padding:32px;transition:.28s;position:relative;overflow:hidden;box-shadow:var(--shadow-sm);}
+    .feature:hover{transform:translateY(-8px);box-shadow:var(--shadow)}
+    .feature-header{border-radius:18px;padding:18px;margin:-32px -32px 24px;display:flex;align-items:center;gap:14px;}
+    .fh-blue{background:linear-gradient(135deg,var(--blue),var(--blue-2))}
+    .fh-teal{background:linear-gradient(135deg,var(--teal),var(--teal-2))}
+    .fh-purple{background:linear-gradient(135deg,var(--purple),var(--purple-2))}
+    .feature-header .fnum{font-family:'Outfit',sans-serif;font-size:13px;font-weight:700;color:rgba(255,255,255,.75);letter-spacing:1px}
+    .feature-header h3{font-size:18px;font-weight:800;color:white;font-family:'Outfit',sans-serif}
+    .feature-header p{font-size:12px;color:rgba(255,255,255,.8);margin-top:2px}
+    .ficon{font-size:28px}
+    .feature > p{color:var(--muted);line-height:1.85;font-size:14.5px}
+    .indikator{margin-top:20px}
+    .indikator-title{font-size:11px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:var(--muted-2);margin-bottom:12px}
+    .indikator ul{list-style:none;display:grid;gap:9px}
+    .indikator li{display:flex;align-items:flex-start;gap:9px;font-size:13.5px;color:var(--text-2);line-height:1.55}
+    .indikator li .icon{font-size:16px;flex:none;margin-top:1px}
+
+    /* WORKS */
+    .works{display:grid;grid-template-columns:1fr 1.1fr;gap:20px;align-items:stretch}
+    .work-main{border:1.5px solid var(--line-2);background:linear-gradient(145deg,rgba(59,91,219,.08),rgba(14,165,196,.06));border-radius:28px;padding:38px;min-height:480px;display:flex;flex-direction:column;justify-content:space-between;overflow:hidden;position:relative;box-shadow:var(--shadow-sm);}
+    .work-main h2{font-family:'Outfit',sans-serif;font-size:40px;line-height:1.15;letter-spacing:-1px;font-weight:800;color:var(--navy);position:relative;z-index:1;}
+    .mock-site{position:relative;z-index:1;background:white;border:1.5px solid var(--line-2);border-radius:20px;padding:16px;box-shadow:var(--shadow-sm)}
+    .mock-nav{height:14px;display:flex;gap:6px;margin-bottom:14px}
+    .mock-nav span{width:8px;height:8px;border-radius:50%;background:var(--muted-2)}
+    .mock-hero{height:90px;border-radius:12px;background:linear-gradient(135deg,var(--blue),var(--teal));margin-bottom:10px;opacity:.8}
+    .mock-lines{display:grid;gap:7px}
+    .mock-lines i{display:block;height:8px;border-radius:999px;background:var(--bg-2)}
+    .work-list{display:grid;gap:14px}
+    .work-card{border:1.5px solid var(--line);background:white;border-radius:22px;padding:22px;display:flex;gap:16px;align-items:flex-start;transition:.25s;box-shadow:0 2px 12px rgba(59,91,219,.06);}
+    .work-card:hover{transform:translateX(6px);box-shadow:var(--shadow-sm);border-color:rgba(59,91,219,.25)}
+    .work-card b{font-size:15px;font-weight:700;color:var(--navy)}
+    .work-card p{color:var(--muted);line-height:1.72;margin-top:5px;font-size:13.5px}
+    .square{width:44px;height:44px;border-radius:14px;display:grid;place-items:center;font-size:20px;background:rgba(59,91,219,.08);flex:none}
+
+    /* PROCESS */
+    .process{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+    .step{border:1.5px solid var(--line);background:white;border-radius:22px;padding:26px;transition:.25s;box-shadow:0 2px 12px rgba(59,91,219,.06);}
+    .step:hover{transform:translateY(-6px);box-shadow:var(--shadow-sm)}
+    .step-num{width:42px;height:42px;border-radius:14px;display:grid;place-items:center;font-family:'Outfit',sans-serif;font-size:18px;font-weight:800;color:white;margin-bottom:18px}
+    .sn-blue{background:linear-gradient(135deg,var(--blue),var(--blue-2))}
+    .sn-teal{background:linear-gradient(135deg,var(--teal),var(--teal-2))}
+    .sn-purple{background:linear-gradient(135deg,var(--purple),var(--purple-2))}
+    .sn-orange{background:linear-gradient(135deg,var(--orange),var(--yellow))}
+    .step h3{font-size:18px;font-weight:700;color:var(--navy);margin-bottom:10px;font-family:'Outfit',sans-serif}
+    .step p{color:var(--muted);line-height:1.75;font-size:14px}
+
+    /* PRICING */
+    .pricing{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+    .price-card{border:1.5px solid var(--line);background:white;border-radius:26px;padding:32px;transition:.28s;box-shadow:var(--shadow-sm);}
+    .price-card.popular{background:linear-gradient(145deg,rgba(59,91,219,.06),rgba(14,165,196,.05));border-color:rgba(59,91,219,.3);transform:translateY(-14px);box-shadow:var(--shadow);}
+    .price-card:hover{transform:translateY(-8px);box-shadow:var(--shadow)}
+    .price-card.popular:hover{transform:translateY(-20px)}
+    .popular-tag{display:inline-block;font-size:11px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;color:white;background:linear-gradient(90deg,var(--blue),var(--teal));padding:5px 12px;border-radius:999px;margin-bottom:14px}
+    .price-card h3{font-size:22px;font-weight:800;color:var(--navy);font-family:'Outfit',sans-serif}
+    .price-card .harga{font-family:'Outfit',sans-serif;font-size:34px;font-weight:800;margin:14px 0 4px;color:var(--blue);}
+    .price-card .harga span{font-size:14px;color:var(--muted);font-family:'Plus Jakarta Sans',sans-serif;font-weight:400}
+    .price-card .desc{color:var(--muted);line-height:1.7;font-size:14px;margin-bottom:20px}
+    .divider{height:1px;background:var(--line-2);margin:18px 0}
+    .price-card ul{list-style:none;display:grid;gap:10px;margin:0 0 24px}
+    .price-card li{display:flex;align-items:center;gap:9px;font-size:14px;color:var(--text-2);font-weight:500}
+    .price-card li::before{content:"✓";width:20px;height:20px;border-radius:50%;background:linear-gradient(135deg,#22c55e,#16a34a);color:white;font-size:11px;font-weight:800;display:grid;place-items:center;flex:none}
+    .price-card a{width:100%;display:block;text-align:center}
+
+    /* FAQ */
+    .faq-wrap{max-width:860px;margin:auto;display:grid;gap:12px}
+    details{border:1.5px solid var(--line);background:white;border-radius:18px;padding:20px 24px;transition:.2s;box-shadow:0 2px 10px rgba(59,91,219,.04)}
+    details:hover{border-color:rgba(59,91,219,.25);box-shadow:var(--shadow-sm)}
+    details[open]{border-color:rgba(59,91,219,.3)}
+    summary{cursor:pointer;font-weight:700;font-size:16px;list-style:none;display:flex;justify-content:space-between;gap:16px;color:var(--navy)}
+    summary::after{content:"+";color:var(--blue);font-size:22px;font-weight:400;flex:none}
+    details[open] summary::after{content:"−"}
+    details p{color:var(--muted);line-height:1.82;margin-top:14px;font-size:15px}
+
+    /* BOTTOM INFO */
+    .bottom-info{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:60px}
+    .info-card{border-radius:22px;padding:28px;display:flex;align-items:flex-start;gap:16px;border:1.5px solid var(--line)}
+    .info-card.ic-blue{background:rgba(59,91,219,.06);border-color:rgba(59,91,219,.2)}
+    .info-card.ic-teal{background:rgba(14,165,196,.06);border-color:rgba(14,165,196,.2)}
+    .info-card.ic-yellow{background:rgba(245,158,11,.06);border-color:rgba(245,158,11,.25)}
+    .info-icon{font-size:28px;flex:none}
+    .info-card h4{font-size:16px;font-weight:700;color:var(--navy);margin-bottom:8px;font-family:'Outfit',sans-serif}
+    .info-card p{font-size:14px;color:var(--muted);line-height:1.75}
+
+    /* CONTACT */
+    .contact-card{text-align:center;border:1.5px solid rgba(59,91,219,.2);background:linear-gradient(145deg,rgba(59,91,219,.08),rgba(14,165,196,.06));border-radius:36px;padding:72px 30px;box-shadow:var(--shadow);}
+    .contact-card h2{font-family:'Outfit',sans-serif;font-size:clamp(34px,5vw,60px);line-height:1.1;letter-spacing:-1px;margin-bottom:16px;font-weight:800;color:var(--navy)}
+    .contact-card p{color:var(--muted);line-height:1.85;max-width:660px;margin:0 auto 34px;font-size:16px}
+
+    /* FOOTER */
+    footer{padding:0;border-top:1.5px solid var(--line-2);background:white;}
+    .footer-inner{padding:56px 8% 40px;display:grid;grid-template-columns:1.2fr 1fr;gap:60px;align-items:flex-start;}
+    .footer-brand{display:flex;flex-direction:column;gap:16px}
+    .footer-logo{display:flex;align-items:center;gap:10px;font-family:'Outfit',sans-serif;font-size:18px;font-weight:800;color:var(--navy);}
+    .footer-logo .brand-badge{width:36px;height:36px;border-radius:12px;display:grid;place-items:center;font-size:16px;background:linear-gradient(135deg,var(--blue),var(--teal));color:white;}
+    .footer-tagline{color:var(--muted);font-size:14px;line-height:1.75;max-width:300px}
+    .footer-socials{display:flex;gap:10px;margin-top:4px}
+    .social-btn{width:38px;height:38px;border-radius:12px;border:1.5px solid var(--line-2);background:var(--bg);display:grid;place-items:center;font-size:16px;transition:.2s;}
+    .social-btn:hover{background:rgba(59,91,219,.08);border-color:rgba(59,91,219,.3);transform:translateY(-3px)}
+    .footer-links{display:grid;grid-template-columns:repeat(3,1fr);gap:32px}
+    .footer-col{display:flex;flex-direction:column;gap:10px}
+    .footer-col h5{font-size:12px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:var(--navy);margin-bottom:4px}
+    .footer-col a{font-size:13.5px;color:var(--muted);font-weight:500;transition:.2s}
+    .footer-col a:hover{color:var(--blue);padding-left:4px}
+    .footer-bottom{padding:20px 8%;border-top:1px solid var(--line);display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;color:var(--muted-2);font-size:12.5px;background:var(--bg);}
+    .footer-accent{background:linear-gradient(90deg,var(--blue),var(--teal));-webkit-background-clip:text;background-clip:text;color:transparent;font-weight:700}
+
+    section.alt-bg{background:white}
+    .reveal{animation:rise .6s ease both}
+    @keyframes rise{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+
+    @media(max-width:1040px){
+      .hero,.works{grid-template-columns:1fr}
+      .showcase{min-height:460px}
+      .features{grid-template-columns:1fr}
+      .pricing{grid-template-columns:1fr 1fr}
+      .process{grid-template-columns:1fr 1fr}
+      .bottom-info{grid-template-columns:1fr}
+      .price-card.popular{transform:none}
+      .footer-inner{grid-template-columns:1fr;gap:36px}
+      .footer-links{grid-template-columns:repeat(3,1fr)}
+    }
+    @media(max-width:760px){
+      section{padding:70px 5%}
+      .hero{padding:130px 5% 60px;grid-template-columns:1fr}
+      .nav{width:94%;border-radius:20px}
+      .nav ul{display:none}
+      h1{letter-spacing:-.5px}
+      .hero-actions .btn{width:100%}
+      .showcase{min-height:460px}
+      .orb{width:250px;height:250px;right:10px}
+      .dashboard{width:100%;top:60px}
+      .floating-a{top:270px;width:80%}
+      .floating-b{right:0;bottom:0;width:75%}
+      .pricing,.process{grid-template-columns:1fr}
+      .work-main h2{font-size:30px}
+      .footer-inner{padding:40px 5% 32px}
+      .footer-links{grid-template-columns:1fr 1fr}
+      .footer-bottom{justify-content:center;text-align:center;padding:16px 5%}
+    }
+  </style>
+</head>
+<body>
+
+  <header class="nav">
+    <a class="brand" href="#beranda">
+      <div class="brand-badge">✦</div>
+      <div><span class="brand-name">Website Kreatif</span><span class="brand-dot">.</span></div>
+    </a>
+    <ul>
+      <li><a class="link" href="#layanan">Layanan</a></li>
+      <li><a class="link" href="#karya">Karya</a></li>
+      <li><a class="link" href="#proses">Proses</a></li>
+      <li><a class="link" href="#paket">Paket</a></li>
+      <li><a class="link" href="#faq">FAQ</a></li>
+    </ul>
+    <a class="cta-mini" href="#kontak">Mulai Project</a>
+  </header>
+
+  <main>
+    <section class="hero" id="beranda">
+      <div class="reveal">
+        <div class="eyebrow"><span class="dot"></span> Studio website kreatif untuk brand modern</div>
+        <h1>Website Kreatif <span class="grad">untuk Bisnis Modern.</span></h1>
+        <p class="hero-desc">Membantu bisnis, UMKM, dan kreator membangun tampilan digital yang modern melalui website responsif, desain kreatif, dan branding yang lebih profesional.</p>
+        <div class="hero-actions">
+          <a href="#layanan" class="btn btn-primary">Lihat Layanan →</a>
+          <a href="#karya" class="btn btn-ghost">Lihat Contoh Karya</a>
+        </div>
+        <div class="hero-proof">
+          <div class="proof-item"><span class="check">✓</span> Desain original tanpa copyright</div>
+          <div class="proof-item"><span class="check">✓</span> Satu halaman interaktif</div>
+          <div class="proof-item"><span class="check">✓</span> Responsive di semua perangkat</div>
+        </div>
+      </div>
+
+      <div class="showcase reveal">
+        <div class="orb"></div>
+        <div class="panel dashboard">
+          <div class="dash-top">
+            <div class="window-dots"><i></i><i></i><i></i></div>
+            <span class="pill">Live Preview</span>
+          </div>
+          <h3 style="margin-bottom:16px;color:var(--navy)">Brand Performance</h3>
+          <div class="dash-label">Usability Score</div>
+          <div class="bar bar-blue"><span style="width:88%"></span></div>
+          <div class="dash-label">Information Quality</div>
+          <div class="bar bar-teal"><span style="width:74%"></span></div>
+          <div class="dash-label">Service Interaction</div>
+          <div class="bar bar-purple"><span style="width:92%"></span></div>
+          <div class="dash-grid">
+            <div class="mini-card"><b>92%</b><p>Visual Impact</p></div>
+            <div class="mini-card"><b>4.9 ⭐</b><p>User Rating</p></div>
+          </div>
+        </div>
+        <div class="panel floating-a">
+          <h3>Website Cepat</h3>
+          <p>Layout ringan, rapi, dan nyaman dibuka dari berbagai perangkat.</p>
+          <div class="chip-row"><span class="chip">Landing Page</span><span class="chip">SEO Basic</span></div>
+        </div>
+        <div class="panel floating-b">
+          <h3>Brand Kit</h3>
+          <p>Warna, tipografi, dan gaya visual dibuat konsisten agar brand mudah dikenali.</p>
+          <div class="chip-row"><span class="chip">Logo</span><span class="chip">Konten</span><span class="chip">UI/UX</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="layanan" class="alt-bg">
+      <div class="title reveal">
+        <small>Layanan Utama</small>
+        <h2>Tiga dimensi layanan digital yang saling melengkapi.</h2>
+        <p>Kami memastikan setiap aspek digital brand kamu — tampilan, konten, dan pengalaman pengguna — terasa jelas, profesional, dan terarah.</p>
+      </div>
+      <div class="features">
+        <article class="feature reveal">
+          <div class="feature-header fh-blue">
+            <div>
+              <div class="fnum">01</div>
+              <h3>Website & Landing Page</h3>
+              <p>Kegunaan & Tampilan</p>
+            </div>
+            <div class="ficon">🖥️</div>
+          </div>
+          <p>Membuat halaman promosi yang responsif, cepat, mudah dipahami, dan siap digunakan untuk memperkenalkan produk atau layanan.</p>
+          <div class="indikator">
+            <div class="indikator-title">Contoh Fitur</div>
+            <ul>
+              <li><span class="icon">🎯</span> Tampilan jelas dan mudah dipahami</li>
+              <li><span class="icon">📱</span> Responsif di semua perangkat</li>
+              <li><span class="icon">⚡</span> Loading cepat dan performa tinggi</li>
+              <li><span class="icon">🎨</span> Desain visual yang menarik</li>
+            </ul>
+          </div>
+        </article>
+        <article class="feature reveal">
+          <div class="feature-header fh-teal">
+            <div>
+              <div class="fnum">02</div>
+              <h3>UI/UX Design</h3>
+              <p>Kualitas Informasi & Alur</p>
+            </div>
+            <div class="ficon">🎨</div>
+          </div>
+          <p>Menyusun tampilan aplikasi atau website agar navigasinya nyaman, visualnya menarik, dan alurnya tidak membingungkan pengguna.</p>
+          <div class="indikator">
+            <div class="indikator-title">Contoh Fitur</div>
+            <ul>
+              <li><span class="icon">🗺️</span> Navigasi yang jelas dan intuitif</li>
+              <li><span class="icon">📋</span> Konten relevan sesuai kebutuhan</li>
+              <li><span class="icon">🔄</span> Alur pengguna yang tidak membingungkan</li>
+              <li><span class="icon">📊</span> Hierarki informasi yang baik</li>
+            </ul>
+          </div>
+        </article>
+        <article class="feature reveal">
+          <div class="feature-header fh-purple">
+            <div>
+              <div class="fnum">03</div>
+              <h3>Digital Branding</h3>
+              <p>Kualitas Interaksi Layanan</p>
+            </div>
+            <div class="ficon">🚀</div>
+          </div>
+          <p>Membangun identitas visual seperti warna, gaya desain, copywriting, dan konten agar brand terlihat lebih profesional dan terpercaya.</p>
+          <div class="indikator">
+            <div class="indikator-title">Contoh Fitur</div>
+            <ul>
+              <li><span class="icon">🛡️</span> Keamanan data pengguna terjaga</li>
+              <li><span class="icon">💬</span> Komunikasi brand yang konsisten</li>
+              <li><span class="icon">⭐</span> Kepercayaan terhadap layanan</li>
+              <li><span class="icon">📞</span> Respons & dukungan pelanggan</li>
+            </ul>
+          </div>
+        </article>
+      </div>
+      <div class="bottom-info">
+        <div class="info-card ic-blue reveal">
+          <div class="info-icon">🎯</div>
+          <div>
+            <h4>Tujuan</h4>
+            <p>Meningkatkan kualitas website agar penggunaan lebih mudah dan layanan semakin baik.</p>
+          </div>
+        </div>
+        <div class="info-card ic-teal reveal">
+          <div class="info-icon">✅</div>
+          <div>
+            <h4>Manfaat</h4>
+            <p>Meningkatkan kepuasan pengguna, membangun kepercayaan, dan mendorong loyalitas jangka panjang.</p>
+          </div>
+        </div>
+        <div class="info-card ic-yellow reveal">
+          <div class="info-icon">⭐</div>
+          <div>
+            <h4>Hasil Akhir</h4>
+            <p>Kualitas website tinggi yang efektif, efisien, dan memenuhi kebutuhan pengguna secara berkelanjutan.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="karya">
+      <div class="title reveal">
+        <small>Contoh Karya</small>
+        <h2>Konsep visual original dari CSS, bukan foto internet.</h2>
+        <p>Simulasi project digital untuk brand fashion, coffee shop, event, maupun bisnis jasa.</p>
+      </div>
+      <div class="works">
+        <div class="work-main reveal">
+          <h2>From idea<br>to digital product.</h2>
+          <div class="mock-site">
+            <div class="mock-nav"><span></span><span></span><span></span></div>
+            <div class="mock-hero"></div>
+            <div class="mock-lines">
+              <i style="width:92%"></i>
+              <i style="width:70%"></i>
+              <i style="width:83%"></i>
+            </div>
+          </div>
+        </div>
+        <div class="work-list">
+          <article class="work-card reveal">
+            <div class="square">☕</div>
+            <div><b>Landing Page Coffee Shop</b><p>Website promosi menu, lokasi, dan suasana kedai dengan tampilan hangat dan elegan.</p></div>
+          </article>
+          <article class="work-card reveal">
+            <div class="square">🛍️</div>
+            <div><b>Brand Fashion Lokal</b><p>Konsep visual untuk katalog produk, campaign, dan halaman penjualan yang modern.</p></div>
+          </article>
+          <article class="work-card reveal">
+            <div class="square">🎤</div>
+            <div><b>Event & Festival Page</b><p>Halaman informasi event lengkap dengan jadwal, tiket, sponsor, dan CTA pendaftaran.</p></div>
+          </article>
+          <article class="work-card reveal">
+            <div class="square">📱</div>
+            <div><b>Prototype Aplikasi</b><p>Desain antarmuka aplikasi yang fokus pada pengalaman pengguna dan kemudahan navigasi.</p></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="proses" class="alt-bg">
+      <div class="title reveal">
+        <small>Alur Kerja</small>
+        <h2>Project dikerjakan bertahap supaya hasilnya rapi dan terarah.</h2>
+      </div>
+      <div class="process">
+        <div class="step reveal">
+          <div class="step-num sn-blue">1</div>
+          <h3>Diskusi</h3>
+          <p>Memahami tujuan, target pengguna, gaya visual, dan kebutuhan utama brand kamu.</p>
+        </div>
+        <div class="step reveal">
+          <div class="step-num sn-teal">2</div>
+          <h3>Konsep</h3>
+          <p>Membuat struktur halaman, warna, konten, dan arah desain yang sesuai dengan tujuan.</p>
+        </div>
+        <div class="step reveal">
+          <div class="step-num sn-purple">3</div>
+          <h3>Produksi</h3>
+          <p>Mengubah konsep menjadi tampilan website atau desain digital yang siap dipakai.</p>
+        </div>
+        <div class="step reveal">
+          <div class="step-num sn-orange">4</div>
+          <h3>Evaluasi</h3>
+          <p>Melakukan pengecekan tampilan, responsivitas, dan kenyamanan pengguna secara menyeluruh.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="paket">
+      <div class="title reveal">
+        <small>Paket Layanan</small>
+        <h2>Pilih paket sesuai kebutuhan project digital kamu.</h2>
+      </div>
+      <div class="pricing">
+        <article class="price-card reveal">
+          <h3>Starter</h3>
+          <div class="harga">Rp499K <span>/ project</span></div>
+          <p class="desc">Cocok untuk kebutuhan personal atau promosi sederhana.</p>
+          <div class="divider"></div>
+          <ul>
+            <li>1 landing page</li>
+            <li>Desain responsif</li>
+            <li>Copywriting singkat</li>
+          </ul>
+          <a class="btn btn-ghost" href="#kontak">Pilih Paket</a>
+        </article>
+        <article class="price-card popular reveal">
+          <div class="popular-tag">Paling Populer</div>
+          <h3>Growth</h3>
+          <div class="harga">Rp899K <span>/ project</span></div>
+          <p class="desc">Pilihan paling pas untuk UMKM dan brand yang ingin terlihat profesional.</p>
+          <div class="divider"></div>
+          <ul>
+            <li>Landing page premium</li>
+            <li>Brand color guide</li>
+            <li>3 section custom</li>
+            <li>SEO basic</li>
+          </ul>
+          <a class="btn btn-primary" href="#kontak">Pilih Paket</a>
+        </article>
+        <article class="price-card reveal">
+          <h3>Studio</h3>
+          <div class="harga">Rp1.5JT <span>/ project</span></div>
+          <p class="desc">Untuk brand yang membutuhkan konsep digital lebih lengkap.</p>
+          <div class="divider"></div>
+          <ul>
+            <li>Website multi section</li>
+            <li>UI/UX concept</li>
+            <li>Brand kit sederhana</li>
+            <li>Konsultasi konten</li>
+          </ul>
+          <a class="btn btn-ghost" href="#kontak">Pilih Paket</a>
+        </article>
+      </div>
+    </section>
+
+    <section id="faq" class="alt-bg">
+      <div class="title reveal">
+        <small>Pertanyaan Umum</small>
+        <h2>Hal yang sering ditanyakan sebelum memulai project.</h2>
+      </div>
+      <div class="faq-wrap">
+        <details class="reveal">
+          <summary>Apakah desain ini aman dari copyright?</summary>
+          <p>Ya. Halaman ini tidak memakai foto dari internet. Visual dibuat menggunakan CSS, gradient, bentuk abstrak, dan emoji bawaan perangkat — sepenuhnya bebas dari risiko copyright.</p>
+        </details>
+        <details class="reveal">
+          <summary>Apakah semua tombol bisa langsung menuju section?</summary>
+          <p>Bisa. Setiap menu menggunakan anchor link seperti #layanan, #karya, #proses, dan #kontak sehingga tetap berada dalam satu halaman tanpa reload.</p>
+        </details>
+        <details class="reveal">
+          <summary>Apakah tampilannya cocok untuk HP?</summary>
+          <p>Cocok. CSS sudah dilengkapi media query agar layout menyesuaikan ukuran layar laptop, tablet, dan smartphone secara otomatis.</p>
+        </details>
+      </div>
+    </section>
+
+    <section id="kontak">
+      <div class="contact-card reveal">
+        <h2>Siap bikin tampilan digital yang lebih niat?</h2>
+        <p>Mulai dari ide sederhana, Website Kreatif membantu mengubahnya menjadi halaman digital yang menarik, jelas, dan profesional.</p>
+        <div class="hero-actions" style="justify-content:center;margin-top:0">
+          <a href="#beranda" class="btn btn-primary">Kembali ke Atas ↑</a>
+          <a href="#layanan" class="btn btn-ghost">Lihat Layanan Lagi</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <div class="footer-logo">
+          <div class="brand-badge">✦</div>
+          <span>Website Kreatif<span class="brand-dot">.</span></span>
+        </div>
+        <p class="footer-tagline">Membangun tampilan digital yang modern, rapi, dan profesional untuk bisnis kamu.</p>
+        <div class="footer-socials">
+          <a href="#" class="social-btn">📸</a>
+          <a href="#" class="social-btn">💼</a>
+          <a href="#" class="social-btn">🐦</a>
+          <a href="#" class="social-btn">▶️</a>
+        </div>
+      </div>
+      <div class="footer-links">
+        <div class="footer-col">
+          <h5>Layanan</h5>
+          <a href="#layanan">Website & Landing Page</a>
+          <a href="#layanan">UI/UX Design</a>
+          <a href="#layanan">Digital Branding</a>
+        </div>
+        <div class="footer-col">
+          <h5>Paket</h5>
+          <a href="#paket">Starter — Rp499K</a>
+          <a href="#paket">Growth — Rp899K</a>
+          <a href="#paket">Studio — Rp1.5JT</a>
+        </div>
+        <div class="footer-col">
+          <h5>Lainnya</h5>
+          <a href="#karya">Contoh Karya</a>
+          <a href="#proses">Alur Kerja</a>
+          <a href="#faq">FAQ</a>
+          <a href="#kontak">Mulai Project</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 <span class="footer-accent">Website Kreatif</span></p>
+      <p>Bandung, Indonesia</p>
+    </div>
+  </footer>
+
+</body>
+</html>
